@@ -1,24 +1,19 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-
 }
 
-body{
+body {
     background: #1f242d;
     color: #fff;
-
 }
 
-
-.header{
+/* Header */
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -29,12 +24,11 @@ body{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-
-
+    transition: padding 0.3s ease;
 }
 
-
-.logo{
+/* Logo */
+.logo {
     font-size: 25px;
     color: #fff;
     text-decoration: none;
@@ -42,29 +36,42 @@ body{
     cursor: default;
     opacity: 0;
     animation: slideRight 1s ease forwards;
-
 }
 
-.navber a {
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
     text-decoration: none;
     display: inline-block;
     color: #fff;
     font-size: 18px;
     font-weight: 500;
     margin-left: 35px;
-    transition: .3s;
-    animation: slideTop .5s ease forwards;
+    transition: 0.3s ease;
     opacity: 0;
-    animation-delay: calc(.2s * var(--i));
+    animation: slideTop 0.5s ease forwards;
+    animation-delay: calc(0.2s * var(--i));
 }
 
-.navber a:hover,
-.navber a.active{
+.navbar a:hover,
+.navbar a.active {
     color: #0ef;
 }
 
+/* Mobile Navbar Toggle Button (Hamburger) */
+.navbar-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+}
 
-.home{
+/* Home Section */
+.home {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -72,36 +79,36 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 70px 10% 0;
+    transition: padding 0.3s ease;
 }
 
-.home-img img{
+.home-img img {
     max-width: 450px;
     border-radius: 100px;
     margin-right: -20px;
     opacity: 0;
     animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
     animation-delay: 2s 3s;
-
 }
 
-
-.home-content{
+/* Home Content */
+.home-content {
     max-width: 600px;
 }
-.home-content h3{
+
+.home-content h3 {
     font-size: 32px;
-    font-weight: 700px;
+    font-weight: 700;
     opacity: 0;
     animation: slideBottom 1s ease forwards;
     animation-delay: .7s;
-    
-
 }
-.home-content h3 span{
+
+.home-content h3 span {
     color: #0ef;
-
 }
-.home-content h1{
+
+.home-content h1 {
     font-size: 56px;
     font-weight: 700;
     margin: -3px 0;
@@ -109,22 +116,15 @@ body{
     animation: slideRight 1s ease forwards;
     animation-delay: .1s;
 }
-.home-content h3:nth-of-type(2){
 
-    margin-bottom: 30px;
-    animation: slideTop 1s ease forwards;
-    animation-delay: .7s;
-    
-}
-.home-content p{
+.home-content p {
     font-size: 16px;
     opacity: 0;
     animation: slideLeft 1s ease forwards;
     animation-delay: .1s;
-
 }
 
-.social-media a{
+.social-media a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -137,19 +137,20 @@ body{
     font-size: 20px;
     color: #0ef;
     margin: 30px 15px 30px 0;
-    transition: .5s ease;
+    transition: 0.5s ease;
     opacity: 0;
     animation: slideLeft 1s ease forwards;
-    animation-delay:calc(.2s * var(--i))
+    animation-delay: calc(0.2s * var(--i));
 }
 
-.social-media a:hover{
+.social-media a:hover {
     background-color: #0ef;
     color: #1f242d;
     box-shadow: 0 0 20px #0ef;
-} 
+}
 
-.btn{
+/* Button */
+.btn {
     display: inline-block;
     padding: 12px 28px;
     background: #0ef;
@@ -158,91 +159,145 @@ body{
     font-size: 16px;
     color: #1f242d;
     text-decoration: none;
-    font-weight: 600; 
+    font-weight: 600;
     opacity: 0;
     animation: slideTop 1s ease forwards;
-    animation-delay:.2s;
-    
-
-
+    animation-delay: .2s;
 }
 
+/* Animations */
 @keyframes slideRight {
-    0%{
+    0% {
         transform: translateX(-100px);
         opacity: 0;
-
     }
-    100%{
+    100% {
         transform: translateX(0);
         opacity: 1;
-        
     }
 }
 
 @keyframes slideLeft {
-    0%{
+    0% {
         transform: translateX(100px);
         opacity: 0;
-
     }
-    100%{
+    100% {
         transform: translateX(0);
         opacity: 1;
-        
     }
 }
 
 @keyframes slideTop {
-    0%{
+    0% {
         transform: translateY(100px);
         opacity: 0;
-
     }
-    100%{
+    100% {
         transform: translateY(0);
         opacity: 1;
-        
     }
 }
 
 @keyframes slideBottom {
-    0%{
+    0% {
         transform: translateY(-100px);
         opacity: 0;
-
     }
-    100%{
+    100% {
         transform: translateY(0);
         opacity: 1;
-        
     }
 }
-
 
 @keyframes zoomIn {
-    0%{
+    0% {
         transform: scale(0);
         opacity: 0;
-
     }
-    100%{
-        transform:scale(1);
+    100% {
+        transform: scale(1);
         opacity: 1;
-        
     }
 }
 
-
-@keyframes floatImage{
-    0%{
+@keyframes floatImage {
+    0% {
         transform: translateY(0);
- 
     }
-    50%{
+    50% {
         transform: translateY(-55px);
     }
-    100%{
+    100% {
         transform: translateY(0);
+    }
+}
+
+/* Tablet and Mobile Adjustments */
+@media (max-width: 1024px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .home {
+        flex-direction: column;
+        padding: 70px 5% 0;
+    }
+
+    .home-img img {
+        max-width: 400px;
+        margin: 20px 0;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+    }
+
+    .home-content p {
+        font-size: 14px;
+    }
+
+    .social-media a {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        margin: 20px 10px;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+/* Navbar mobile styles */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: rgba(31, 36, 45, 0.9);
+        padding: 10px 0;
+        transition: all 0.3s ease;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    .navbar-toggle {
+        display: block;
     }
 }
